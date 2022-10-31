@@ -20,7 +20,24 @@ const calender = () => {
         setCalendarText(`The selected Date is ${value.toDateString()}`);
         let valDate=value.toDateString();
         let valDay=valDate.substring(0, 3);
-        let valDatee=valDate.substring(4, 15);
+        //let valDatee=valDate.substring(4, 15);
+        
+        let valDateeM=valDate.substring(4, 7);
+        let valDateeD=valDate.substring(8, 10);
+        let valDateeY=valDate.substring(11, 15);
+        if(valDateeM=="Jan")valDateeM="1";
+        else if(valDateeM=="Feb")valDateeM="2";
+        else if(valDateeM=="Mar")valDateeM="3";
+        else if(valDateeM=="Apr")valDateeM="4";
+        else if(valDateeM=="May")valDateeM="5";
+        else if(valDateeM=="Jun")valDateeM="6";
+        else if(valDateeM=="Jul")valDateeM="7";
+        else if(valDateeM=="Aug")valDateeM="8";
+        else if(valDateeM=="Sep")valDateeM="9";
+        else if(valDateeM=="Oct")valDateeM="10";
+        else if(valDateeM=="Nov")valDateeM="11";
+        else if(valDateeM=="Dec")valDateeM="12";
+        let valDatee=valDateeY+"-"+valDateeM+"-"+valDateeD
         //alert(valDatee);
         bookSlotday(valDay,valDatee);
     };

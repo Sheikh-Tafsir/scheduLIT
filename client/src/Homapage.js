@@ -34,17 +34,20 @@ const Homapage = () => {
         };
 
         const loggout = () =>{
-          Axios.post("http://localhost:3001/loggout",{
+          localStorage.setItem("loggedstat",0);
+          /*Axios.post("http://localhost:3001/loggout",{
             lgname:"flag",
           }).then((response) =>{
               setX(response.data.message);
-          });        
+          });*/        
         };
 
         const renderAuthButton = () => {
-          {aa()};
+          //{aa()};
           //alert(x);
-          if (x===1) {
+          let loggedstat=localStorage.getItem("loggedstat");
+          //if (x===1) {
+          if(loggedstat==1){
             return <a href='/' className="rega" onClick={() => loggout()}>Log out</a>
           } 
           else {
@@ -52,8 +55,10 @@ const Homapage = () => {
           }
         };
         const servicelogstat = () => {
-          {aa()};
-          if (x===1) {
+          //{aa()};
+          let loggedstat=localStorage.getItem("loggedstat");
+          //if (x===1) {
+          if(loggedstat==1){
             return <Service></Service>
           }
 

@@ -13,25 +13,15 @@ const Authorization = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loginStatus, setLoginStatus] = useState("");
+    
     let usrname=localStorage.getItem("usrname");
+    let loggedstat=localStorage.getItem("loggedstat");
+    //localStorage.setItem("loggedstat",0);
   
     const displayInfo = () => {
         console.log(username + password);
         alert(username + password);
     }
-    /*const addEmployee = () => {
-        //alert("yes");
-        Axios.post('http://localhost:3001/create',{
-            username:username,
-            password:password
-        }).then((response) =>{
-            //alert(response.data.message);
-            setLoginStatus(response.data.message);
-            //console.log("success");
-        });
-        document.querySelector(".logfrm").reset();
-        //alert("succ");
-    };*/
 
     const getEmployee = () => {
         //alert("yess");
@@ -44,18 +34,12 @@ const Authorization = () => {
             setLoginStatus(response.data.message);
             if(response.data.message==="ok"){
                 //{getMail()};
+                localStorage.setItem("loggedstat",1);
+                /*let loggedstat=localStorage.getItem("loggedstat");
+                alert("1 " + loggedstat);
+                alert("1user " + usrname);*/
                 window.open("/", "_top");
             }
-            /*alert(response.data[0].username);
-            if(response.data.message){
-                setLoginStatus(response.data.message);
-                //alert(response.data.message);
-            }
-            else{
-                setLoginStatus(response.data[0].username);
-                alert("bo");
-                //alert(response.data[0].username);
-            }*/
         });
         //alert("succc");
         document.querySelector(".logfrm").reset();

@@ -6,6 +6,7 @@ const Dash = () => {
     const [username, setUsername] = useState("");
     const [userdata, setUserdata] = useState([]);
     let usrname=localStorage.getItem("usrname");
+    let loggedstat=localStorage.getItem("loggedstat");
 
     window.addEventListener("load",function(){
       //alert(usrname);
@@ -28,7 +29,7 @@ const Dash = () => {
             <button type="submit">Saved</button>
             
         </form>*/}
-        <h2>Personal Info</h2>
+        <h2>Profile</h2>
         <div className="dashfrm">
             
             <img src="https://i1.sndcdn.com/avatars-LH92hC7SFmybsuap-ChJvVg-t500x500.jpg"></img>
@@ -43,8 +44,8 @@ const Dash = () => {
                             <p >{item.iid} </p> <br/>
                             <h3>Department: </h3>
                             <p >CSE </p> <br/>
-                            <h3>Password: </h3>
-                            <p >{item.password} </p><br/>
+                            <p >{loggedstat} </p> <br/>
+                            
                         </div>
                 </div>
             })}

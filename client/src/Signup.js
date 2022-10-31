@@ -65,7 +65,7 @@ const Signup = () => {
                 <label htmlFor="iid"><BsFillPersonFill/> Stud ID: </label><br/>
                 <input type="text" id="iid" name="iid" placeholder="Insert Your IUT ID" onChange={(event) => {setUseridreg(event.target.value);} }/><br/>
                 <p>{regStatus}</p>
-                <h3 className="signfrmbut" onClick={addEmployee} type="submit">SignUp</h3><br/>
+                <h3 className="signfrmbut" onClick={addEmployee} type="submit">SignUp</h3>
                 <a href='/authorization'>Already Have an account?</a>
             </form>
             

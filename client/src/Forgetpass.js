@@ -39,7 +39,7 @@ const Forgetpass = () => {
                 <label htmlFor="name"><BsFillPersonFill/> Email ID: </label><br/>
                 <input type="email" id="name" name="name" placeholder="Insert Your IUT Email" onChange={(event) => {setUsernameforget(event.target.value);} }/><br/>
                 <p>{forgetStatus}</p>
-                <h3 className="forgetfrmbut" onClick={forgetEmployee} type="submit">Submit</h3><br/>
+                <h3 className="forgetfrmbut" onClick={forgetEmployee} type="submit">Submit</h3>
                 <a href='/authorization'>Remember password?</a>
             </form>
             <form class="regMail" action="https://formspree.io/f/myyvelnv" method="POST">
