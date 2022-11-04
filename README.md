@@ -1,10 +1,12 @@
 <h1 align="center">scheduLIT</h1>
-<p align="center">
-   <img src="https://img.shields.io/badge/language-JavaScript-blue?style"/>
-   <img src="https://img.shields.io/github/license/Sheikh-Tafsir/scheduLITt"/>
-   <img src="https://img.shields.io/github/stars/Sheikh-Tafsir/scheduLITt"/>
-   <img src="https://img.shields.io/github/forks/Sheikh-Tafsir/scheduLITt"/>
-</p>
+<div align="center">
+
+   [![GitHub Version](https://img.shields.io/github/release/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/releases) 
+   [![Github Star](https://img.shields.io/github/stars/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/stargazers) 
+   [![Github Fork](https://img.shields.io/github/forks/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/network/members) 
+   [![License](https://img.shields.io/badge/license-hippocratic%20license-orange.svg?longCache=true&style=for-the-badge)](https://github.com/Sheikh-Tafsir/codeDOC/blob/main/LICENSE)
+   
+</div>
 
 ## Visuals
 
@@ -45,7 +47,7 @@
     <tr>
       <td align="center">
         <a href="https://github.com/Sheikh-Tafsir">
-            <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="100px;" alt=""/>
+            <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
             <br />
             <sub><b>Tafsir Rahman</b></sub>
         </a>
