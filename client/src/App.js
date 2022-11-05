@@ -46,7 +46,7 @@ const App = () => {
     document.querySelector("#menualticon").style.visibility="hidden";
   };
   useEffect(()=>{
-    Aos.init({duration: 2000});
+    Aos.init({duration: 2000,once: true});
   }, []);
 
   return (
