@@ -940,14 +940,14 @@
         width:23.5%;
     }
     .gall img:nth-child(4):hover{
-        transform:scale(1.8) translate(-5.3rem,-4.2rem);
+        transform:scale(1.8) translate(-4.3rem,-4.2rem);
         box-shadow:6px 6px 12px rgba(0,0,0,0.1),-6px -6px 12px rgba(0,0,0,0.1);
     }
     .gall img:nth-child(5){
         width:21.5%;
     }
     .gall img:nth-child(5):hover{
-        transform:scale(1.8) translate(-11.3rem,-4.2rem);
+        transform:scale(1.8) translate(-4.3rem,-4.2rem);
         box-shadow:6px 6px 12px rgba(0,0,0,0.1),-6px -6px 12px rgba(0,0,0,0.1);
     }
 }
@@ -1436,35 +1436,43 @@ form button:hover{
         margin-top:0.7rem;
         padding:0 0 0 1.5rem;
     }
-    .logfrm a{
+    .frgtps{
         color:#3b5e53;
+        margin-right:38%;
+        font-size:0.9em;
     }
-    .logfrm a:hover{
+    .frgtps:hover{
         color:blue;
     }
-    #log2reg{
-        margin-right:1rem;
-        background-color:white;
-        transition: 0.2s;
+    .log2admn{
+        color:#3b5e53;
+        font-size:0.9em;
+        
     }
-    #log2reg:hover{
-        background-color: #3f846f;
+    .log2admn:hover{
+        color:blue;
     }
     .logfrmbut{
-        margin-top:4.4rem;
+        margin-top:3rem;
         margin-bottom:1.5rem;
         background-color: #3b5e53;
         color:white;
         height:2.7rem;
-        width:6rem;
+        width:25%;
         border:none;
         font-size:1.2rem;
         line-height: 2.3rem;
         cursor:pointer;
         display:inline-block;
         box-shadow:6px 6px 12px #c6c7d0,-6px -6px 12px #ffffff;
-        transform:translatex(-6rem);
     }
+    #log2reg{
+        color:#3b5e53;
+    }
+    #log2reg:hover{
+        color:#d10000;
+    }
+
 }
 @media screen and (max-width: 991px) {
     .authorization{
@@ -1544,30 +1552,15 @@ form button:hover{
 .logfrmbut:active{
     background-color: #3f846f;
     box-shadow:6px 6px 12px #ffffff,-6px -6px 12px #ffffff;
-
-}
-#log2reg{
-    box-shadow:0px 0px 0px 0.1rem #3b5e53 inset;
-    margin-left:12rem;
-}
-#log2reg a{
-    text-decoration: none;
-    color:#3f846f;
-    transition: 0.2s;
-}
-#log2reg:hover a{
-    text-decoration: none;
-    color:white;
-    
 }
 .logfrm p{
-    width:90%;
+    font-size:1.2em;
     color:red;
-    font-size:1.2rem;
-    text-align: center;
-    height:0rem;
-    /*background-color: pink;*/
+    width:100%;
+    margin-left:-5%;
+    margin-top:5%;
 }
+
 
 
 
@@ -1588,10 +1581,10 @@ form button:hover{
     .signfrm{
         background-color: white;
         width:35%;
-        height:60%;
+        height:70%;
         text-align: center;
         margin-left:10%;
-        margin-top:10%;
+        margin-top:7%;
     }
     .signfrm h2{
         color:#3b5e53;
@@ -1614,6 +1607,17 @@ form button:hover{
         margin-bottom:1rem;
         margin-top:0.7rem;
         padding:0 0 0 1.5rem;
+    }
+    #deptmnt{
+        width:80%;
+        height:10%;
+        border: 2px solid #3b5e53;
+        border-radius: 10px;
+        margin-top:2%;
+        padding-left:3%;
+        color:rgb(114, 114, 114);
+    }
+    #deptmnt option{
     }
     .signfrm a{
         color:#3b5e53;
@@ -2207,7 +2211,7 @@ abbr[title] {
     }
 
     .checkbooks{
-        width:60vw;
+        width:70vw;
         margin:auto;
         background-color: white;
         color:black;
@@ -2248,7 +2252,14 @@ abbr[title] {
         border-right:1px solid black;
     }
     .checkbookpnt6{
-        width:40vw;   
+        width:25vw;   
+        border-right:1px solid black;
+    }
+    .checkbookpnt7{
+        width:7vw;   
+    }
+    .checkbookpnt7:hover{
+        background-color: red;
     }
     #checkbookpnthd{
         background-color: pink;
@@ -2271,6 +2282,7 @@ abbr[title] {
         margin:auto;
         background-color: white;
         color:black;
+        
     }
     .checkbookpnt{
         height:7vh;
@@ -2280,7 +2292,7 @@ abbr[title] {
         display:flex;
     }
 
-    .checkbookpnt p{
+    .checkbookpnt{
         /*display:inline;*/
         font-size:1em;
         line-height: 7vh;
@@ -2365,7 +2377,7 @@ abbr[title] {
         display:inline;
         color:#3b5e53;
         font-size:1.4em;
-        line-height:5vh;
+        line-height:6vh;
     }
     .dashfrmstat p{
         display:inline;
@@ -2439,6 +2451,80 @@ abbr[title] {
         width:100%;
         position:fixed;
         z-index:100;
+    }
+}
+
+/*-------------------check delete users----------------------*/
+.uservw{
+    background: linear-gradient(145deg,#3b5e53,#34413d);
+
+    /*background-attachment: fixed;*/
+    height:100vh;
+    color:white;
+}
+.reggg{
+    background: linear-gradient(145deg,white,#d4d5df);
+    height:5vh;
+    width:60%;
+    text-align:center;
+    margin-top:2.5vh;
+    padding-top: 1vh;
+    border-radius:10px;
+    margin-left:45vw;
+}
+@media screen and (min-width: 992px) {
+    .uservw h2{
+        text-align: center;
+        padding-top:15vh;
+        margin-bottom:5vh;
+        font-size:2em;
+    }
+
+    .alluserdt{
+        width:70vw;
+        margin:auto;
+        background-color: white;
+        color:black;
+    }
+    .viewalluserdt{
+        height:7vh;
+        padding-left: 4vw;
+        transition: linear 0.1s;
+        border-bottom: 2px solid #3b5e53;
+        display:flex;
+    }
+
+    .viewalluserdt p{
+        /*display:inline;*/
+        font-size:1.2em;
+        line-height: 7vh;
+        text-align: center;
+    }
+    .viewalluserdt:hover{
+        background-color: #6f48eb;
+        color:white;
+    }
+    .viewalluserdtpnt1{
+        width:35%;
+        border-right:1px solid black;
+    }
+    .viewalluserdtpnt2{
+        width:30%;
+        border-right:1px solid black;
+    }
+    .viewalluserdtpnt3{
+        width:30%;
+        border-right:1px solid black;
+    }
+    .viewalluserdtpnt4{
+        width:15%;
+        border-right:1px solid black;
+    }
+    .viewalluserdtpnt4:hover{
+        background-color: red;
+    }
+    #viewalluserdt{
+        background-color: pink;
     }
 }
 

@@ -12,6 +12,17 @@ const calender = () => {
     const [employeeList,setEmployeeList] = useState([]);
     const [insertstat,setInsertstat] =useState();
     let usrname=localStorage.getItem("usrname");
+    let deptstat=localStorage.getItem("deptstat");
+
+    const date = new Date();
+
+    let presday = date.getDate();
+    let presmonth = date.getMonth() + 1;
+    let presyear = date.getFullYear();
+
+    // This arrangement can be altered based on how we want the date's format to appear.
+    let currentDate = `${presyear}-${presmonth}-${presday}`;
+    //alert(currentDate); // "17-6-2022"
 
     // State for text above calander
     const [calendarText, setCalendarText] = useState(`No Date is selected`);
@@ -39,7 +50,52 @@ const calender = () => {
         else if(valDateeM=="Dec")valDateeM="12";
         let valDatee=valDateeY+"-"+valDateeM+"-"+valDateeD
         //alert(valDatee);
-        bookSlotday(valDay,valDatee);
+        if(valDateeY == presyear){
+            if(valDateeM < presmonth){
+                document.querySelector(".emptyslotshead h2").innerHTML="Day already Past";
+                document.querySelector(".emptyslotshead").style.visibility="visible";
+                document.querySelector(".emptyslotshead").style.transform="scale(1)";
+
+            }
+            else if(valDateeM == presmonth){
+                if(valDateeD < presday){
+                    document.querySelector(".emptyslotshead h2").innerHTML="Day already Past";
+                    document.querySelector(".emptyslotshead").style.visibility="visible";
+                    document.querySelector(".emptyslotshead").style.transform="scale(1)";
+                    
+                }
+                else if(valDateeD < presday+14){
+                    bookSlotday(valDay,valDatee); 
+                }
+                else{
+                    document.querySelector(".emptyslotshead h2").innerHTML="Book within 14 days range";
+                    document.querySelector(".emptyslotshead").style.visibility="visible";
+                    document.querySelector(".emptyslotshead").style.transform="scale(1)";
+                }
+            }
+            else{
+                if((30-valDateeD + 31-presday)<14){
+                    bookSlotday(valDay,valDatee); 
+                }
+            }
+        }
+        else if(valDateeY > presyear){
+            if(valDateeM == "Jan" && presmonth == "Dec" &&  ((31-valDateeD + 31-presday)<14)){
+                bookSlotday(valDay,valDatee); 
+            }
+            else{
+                document.querySelector(".emptyslotshead h2").innerHTML="Book within 14 days range";
+                document.querySelector(".emptyslotshead").style.visibility="visible";
+                document.querySelector(".emptyslotshead").style.transform="scale(1)";
+            }
+        }
+        else{
+            document.querySelector(".emptyslotshead h2").innerHTML="Day already Past";
+            document.querySelector(".emptyslotshead").style.visibility="visible";
+            document.querySelector(".emptyslotshead").style.transform="scale(1)";
+        }
+        //bookSlotday(valDay,valDatee); 
+        
     };
 
     //select date to book
@@ -48,13 +104,13 @@ const calender = () => {
         Axios.post('http://localhost:3001/bookday',{
             bookday:valDay,
             bookdatee:valDatee,
+            deptstat:deptstat,
         }).then((response) =>{
             setEmployeeList(response.data);
             //alert(JSON.stringify(response.data));
         });
         /*if(valDay=="Sat" || valDay=="Fri")document.querySelector(".emptyslotshead").style.visibility="hidden";
         else document.querySelector(".emptyslotshead").style.visibility="visible";*/
-        
         if(valDay=="Sat" || valDay=="Sun")document.querySelector(".emptyslotshead h2").innerHTML="No CLass on Weekends";
         else document.querySelector(".emptyslotshead h2").innerHTML="Choose From Free Slots";
         //document.querySelector(".emptyslotshead").style.transition = "all 2s";
@@ -123,6 +179,17 @@ const calender = () => {
     }
 
 
+    /*const getDateXDaysAgo = (numOfDays,date = new Date())=> {
+        const daysAgo = new Date(date.getTime());
+      
+        daysAgo.setDate(date.getDate() - numOfDays);
+      
+        return daysAgo;
+    };
+      
+    const ddate = new Date(currentDate);
+    alert(getDateXDaysAgo(7));*/
+        
   return (
     <div className="calender">
         <Menusrvc></Menusrvc>

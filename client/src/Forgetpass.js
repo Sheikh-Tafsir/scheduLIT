@@ -19,11 +19,12 @@ const Forgetpass = () => {
             //alert(response.data.message);
             if(response.data.message=="0")setForgetStatus("not found");
             else{
-                setForgetStatus("found");
-                setPasswordforget(response.data.message);
+                setForgetStatus("password sent to mail");
+                window.location.href = "/authorization";
+                /*setPasswordforget(response.data.message);
                 document.querySelector("#regMailName").value =usernameforget;
                 document.querySelector("#regMailPass").value =response.data.message ;
-                document.querySelector("#regMailSub").click();
+                document.querySelector("#regMailSub").click();*/
             }
             //console.log("success");
         });

@@ -21,6 +21,8 @@ import  "aos/dist/aos.css"
 import Service from './Service';
 import Dash from './Dash';
 import Menusrvc from './Menusrvc';
+import Adminlogin from './Adminlogin';
+import Userview from './Userview';
 
 /*import { useState } from "react";
 import $ from "jquery";
@@ -91,6 +93,8 @@ const App = () => {
         <Route path='/checkbook' element={<Checkbook/>} />
         <Route path='/dash' element={<Dash/>} />
         <Route path='/menusrvc' element={<Menusrvc/>} />
+        <Route path='/admnlgn' element={<Adminlogin/>} />
+        <Route path='/userview' element={<Userview/>} />
       </Routes>
     </div>
   )

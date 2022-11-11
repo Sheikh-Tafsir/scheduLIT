@@ -17,19 +17,22 @@ const Contacts = () => {
                         <AiOutlineMail className="cntkpnticons"></AiOutlineMail>
                         <h4>Email</h4>
                         <p>190041130tafsir@gmail.com</p>
-                        <button><a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqTflxmKpkQKmTDWwrCjJwCJlgDlPDzVtvxXRtkzzsLDwhfVsLhxncRQmPctlQvvMJNnhL" target="_blank" className="cntkpntbut">Mail Us <FaArrowRight className="arricon"></FaArrowRight></a></button>
+                        {/*<button><a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqTflxmKpkQKmTDWwrCjJwCJlgDlPDzVtvxXRtkzzsLDwhfVsLhxncRQmPctlQvvMJNnhL" target="_blank" className="cntkpntbut">Mail Us <FaArrowRight className="arricon"></FaArrowRight></a></button>*/}
+                        <p>Mail us</p>
                     </div>
                     <div className="cntkpnt" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" data-aos-anchor-placemeny="center-center">
                         <FaWhatsapp className="cntkpnticons"></FaWhatsapp>
                         <h4>WhatsApp</h4>
                         <p>01817530115</p>
-                        <button><a href="https://web.whatsapp.com/" target="_blank" className="cntkpntbut">Text Us <FaArrowRight className="arricon"></FaArrowRight></a></button>
+                        {/*<button><a href="https://web.whatsapp.com/" target="_blank" className="cntkpntbut">Text Us <FaArrowRight className="arricon"></FaArrowRight></a></button>*/}
+                        <p>Call us</p>
                     </div>
                     <div className="cntkpnt" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" data-aos-anchor-placemeny="center-center">
                         <FaFacebookMessenger className="cntkpnticons"></FaFacebookMessenger>
                         <h4>Messenger</h4>
                         <p>Team PiedPiper</p>
-                        <button><a href="#"  className="cntkpntbut">Text Us <FaArrowRight className="arricon"></FaArrowRight></a></button>
+                        {/*<button><a href="#"  className="cntkpntbut">Text Us <FaArrowRight className="arricon"></FaArrowRight></a></button>*/}
+                        <p>Text us</p>
                     </div>
                 </div>
                 <div className="mailbar">

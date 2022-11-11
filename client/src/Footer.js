@@ -14,7 +14,7 @@ const  Footer = () => {
   return (
     <div>
         <div className="footer">
-            <img src="https://i.ibb.co/s6jGM7G/Vintage-Retro-Style-Surf-Shop-Logo-removebg-preview.png" height="100rem" width="150rem" alt="footerlogo"></img>
+            <img src="https://i.ibb.co/y67Dq4h/pq.png" height="100rem" width="150rem" alt="footerlogo"></img>
             <div className="footmenu">
                 <a href="#about" >About</a>
                 <a href="#works">Projects</a>

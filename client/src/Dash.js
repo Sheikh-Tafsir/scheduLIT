@@ -15,8 +15,8 @@ const Dash = () => {
       }).then((response) =>{
           setUserdata(response.data);
           //alert(JSON.stringify(response.data));
-      });
-  });
+        });
+    });
   return (
     <div className="dash">
         <Menusrvc></Menusrvc>
@@ -33,7 +33,7 @@ const Dash = () => {
         <div className="dashfrm">
             
             <img src="https://i1.sndcdn.com/avatars-LH92hC7SFmybsuap-ChJvVg-t500x500.jpg"></img>
-            <h3>Shoto Todoroki</h3>
+            <h3>Personal Info</h3>
             {userdata.map((item, index) => {
                 return <div className="dashfrmstat">
                         <div key={index} >
@@ -43,8 +43,10 @@ const Dash = () => {
                             <h3>ID: </h3>
                             <p >{item.iid} </p> <br/>
                             <h3>Department: </h3>
-                            <p >CSE </p> <br/>
-                            <p >{loggedstat} </p> <br/>
+                            <p >{item.dept} </p> <br/>
+                            <h3>Available Rooms: </h3>
+                            {item.dept== "CSE"? <p>301 302 205 105 106</p>: <p>303 304 103 104</p>}
+                            {/*<p >{loggedstat} </p> <br/>*/}
                             
                         </div>
                 </div>

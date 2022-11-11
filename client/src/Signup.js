@@ -9,8 +9,11 @@ const Signup = () => {
 
     const [usernamereg, setUsernamereg] = useState("");
     const [passwordreg, setPasswordreg] = useState("");
+    
     const [useridreg,setUseridreg]=  useState("");
     const [regStatus, setRegStatus] = useState("");
+    const options = ["CSE", "EEE", "MCE"];
+    const [deptmntreg, setDeptmntreg] = useState(options[0]);
 
     const addEmployee = () => {
         if(ValidateEmail(usernamereg)){
@@ -21,6 +24,7 @@ const Signup = () => {
             Axios.post('http://localhost:3001/create',{
                 username:usernamereg,
                 iid:useridreg,
+                dept:deptmntreg.toUpperCase(),
                 password:first3+last3
             }).then((response) =>{
                 //alert(response.data.message);
@@ -32,10 +36,11 @@ const Signup = () => {
                 }
                 else{
                     setRegStatus(response.data.message);
-                    document.querySelector("#regMailName").value =usernamereg ;
+                    window.location.href = "/authorization";
+                    /*document.querySelector("#regMailName").value =usernamereg ;
                     document.querySelector("#regMailId").value =useridreg ;
                     document.querySelector("#regMailPass").value =first3+last3 ;
-                    document.querySelector("#regMailSub").click();
+                    document.querySelector("#regMailSub").click();*/
                     
                 }
             });
@@ -64,6 +69,14 @@ const Signup = () => {
                 <input type="email" id="name" name="name" placeholder="Insert Your IUT Email" onChange={(event) => {setUsernamereg(event.target.value);} }/><br/>
                 <label htmlFor="iid"><BsFillPersonFill/> Stud ID: </label><br/>
                 <input type="text" id="iid" name="iid" placeholder="Insert Your IUT ID" onChange={(event) => {setUseridreg(event.target.value);} }/><br/>
+                <label htmlFor="iid"><BsFillPersonFill/> Department: </label><br/>
+                {/*<input type="text" id="deptmnt" name="deptmnt" placeholder="Insert Your IUT Department" onChange={(event) => {setDeptmntreg(event.target.value);} }/><br/>*/}
+                <select name="cars" id="deptmnt" onChange={(event) => setDeptmntreg(event.target.value)} defaultValue={deptmntreg}>
+                    {options.map((option, idx) => (
+                        <option key={idx}>{option}</option>
+                    ))}
+                </select>
+                
                 <p>{regStatus}</p>
                 <h3 className="signfrmbut" onClick={addEmployee} type="submit">SignUp</h3>
                 <a href='/authorization'>Already Have an account?</a>
