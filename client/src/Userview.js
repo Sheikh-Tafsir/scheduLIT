@@ -1,14 +1,12 @@
 import React, {useState} from 'react'
 import Axios from 'axios';
 import {FaTrashAlt} from 'react-icons/fa'
+import Adminmenusrvc from './Adminmenusrvc';
 
 const Userview = () => {
     const [userdata, setUserdata] = useState([]);
     
-    const loggout = () =>{
-        localStorage.setItem("loggedstat",0);  
-        window.open("/admnlgn", "_top");     
-    };
+   
 
     window.addEventListener("load",function(){
         //alert(usrname);
@@ -33,16 +31,7 @@ const Userview = () => {
     };
   return (
     <div className="uservw">
-        <div className="headbar" data-aos="fade-down">
-          <div className="headlogo">
-            <a href="https://ibb.co/4Mrp97L"><img src="https://i.ibb.co/y67Dq4h/pq.png" alt="pp" border="0" height="70rem" width="170rem"/></a>
-          </div>
-          <div className="reg">
-            <div className="reggg">
-                <a href='/' className="rega" onClick={() => loggout()}>Log out</a>
-            </div>
-          </div>
-        </div>
+        <Adminmenusrvc></Adminmenusrvc>
         <h2>All User Data</h2>
         <div className="alluserdt" >
             <div className="viewalluserdt" id="viewalluserdt">
