@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default function mergeClassNames() {\n  return Array.prototype.slice.call(arguments).reduce(function (classList, arg) {\n    return classList.concat(arg);\n  }, []).filter(function (arg) {\n    return typeof arg === 'string';\n  }).join(' ');\n}","map":null,"metadata":{},"sourceType":"module"}
