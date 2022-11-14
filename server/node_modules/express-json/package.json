@@ -1,0 +1,11 @@
+{
+    "version": "1.0.0",
+    "name": "express-json",
+    "description": "A middleware for Express that sets Content-Type to text/plain if Accept header doesn't contain application/json.",
+    "keywords": [
+        "express",
+        "middleware",
+        "json"
+    ],
+    "main": "./lib/json.js"
+}
