@@ -4,7 +4,7 @@
    [![GitHub Version](https://img.shields.io/github/release/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/releases) 
    [![Github Star](https://img.shields.io/github/stars/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/stargazers) 
    [![Github Fork](https://img.shields.io/github/forks/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/network/members) 
-   [![License](https://img.shields.io/badge/license-hippocratic%20license-orange.svg?longCache=true&style=for-the-badge)](https://github.com/Sheikh-Tafsir/codeDOC/blob/main/LICENSE)
+   [![License](https://img.shields.io/badge/license-MIT%20license-orange.svg?longCache=true&style=for-the-badge)](https://github.com/Sheikh-Tafsir/codeDOC/blob/main/LICENSE)
    
 </div>
 
