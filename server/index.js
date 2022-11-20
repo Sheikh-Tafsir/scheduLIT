@@ -145,60 +145,6 @@ app.post("/forget", (req,res)=>{
 });
 
 
-//change pass
-app.post("/changepass", (req,res)=>{
-    console.log(req.body.username);
-    const username = req.body.username;
-    const password = req.body.password;
-
-    var mod = 1e9 + 7;
-    var base = 11;
-    var cur = 1, hash = 0;
-    for (let i = 0; i < password.length; i++) {
-        hash = (hash + cur * password.charCodeAt(i));
-        //console.log(hash);
-        cur = (cur * base) % mod;
-    }
-    const hashh=hash
-    
-    tomail=username;
-
-    db.query(
-        //"SELECT password FROM users WHERE username = ?",
-        "UPDATE users SET password = ? WHERE username = ?",
-        [hashh,username],
-        (err,result) =>{
-            //console.log(result[0]);
-            if(err){
-                console.log("why");
-                res.send({message:err});
-            }
-            else{
-                res.send("password sent");
-
-                const sendMail = async (msg) => {
-                    try{
-                        await sgMail.send(msg);
-                        console.log("Message sent succesfully!");
-                    }
-                    catch(error){
-                        console.log(error);
-                        if(error.response){
-                            console.error(error.response.body);
-                        }
-                    }
-                };
-                sendMail({
-                    to:username,
-                    from:"dev.teamroket@gmail.com",
-                    subject: "ScheduLIT",
-                    text:"Useremail: " + username + "    password: " + password,
-                });
-            }
-        }
-    );
-});
-
 //login
 app.post("/log", (req,res)=>{
     //console.log(req.body.username);
@@ -437,11 +383,10 @@ app.post("/daybookedsaved", (req,res)=>{
     const vslot=req.body.vslot;
     const vduration=req.body.vduration;
     const vusrname=req.body.vusrname;
-    const voldslot=req.body.voldslot;
 
     db.query(
-        "INSERT INTO bookedroom (roomno,date,day,slotno,slot,email,time,oldslot) VALUES (?,?,?,?,?,?,?,?)",
-        [vroomno,vdate,vday,vslot,vduration,vusrname,vtime,voldslot],
+        "INSERT INTO bookedroom (roomno,date,day,slotno,slot,email) VALUES (?,?,?,?,?,?)",
+        [vroomno,vdate,vday,vslot,vduration,vusrname],
         (err,result) =>{
             if(err){
                 console.log(err);
@@ -482,13 +427,12 @@ app.post("/deletebookingrout", (req,res)=>{
     const vdate=req.body.vdate;
     const vroomno=req.body.vroomno;
     const vslot=req.body.vslot;
-    const voldslot=req.body.voldslot;
     console.log(vslot);
     if(vslot=="slot1"){
         console.log("taf1");
         db.query(
-            "UPDATE roombook SET slot1 = ? WHERE date=? AND roomno=?;",
-            [voldslot,vdate,vroomno],
+            "UPDATE roombook SET slot1 = '0' WHERE date=? AND roomno=?;",
+            [vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -505,8 +449,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot2"){
         db.query(
-            "UPDATE roombook SET slot2 = ? WHERE date=? AND roomno=?;",
-            [voldslot,vdate,vroomno],
+            "UPDATE roombook SET slot2 = '0' WHERE date=? AND roomno=?;",
+            [vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -523,8 +467,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot3"){
         db.query(
-            "UPDATE roombook SET slot3 = ? WHERE date=? AND roomno=?;",
-            [voldslot,vdate,vroomno],
+            "UPDATE roombook SET slot3 = '0' WHERE date=? AND roomno=?;",
+            [vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -541,8 +485,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot4"){
         db.query(
-            "UPDATE roombook SET slot4 = ? WHERE date=? AND roomno=?;",
-            [voldslot,vdate,vroomno],
+            "UPDATE roombook SET slot4 = '0' WHERE date=? AND roomno=?;",
+            [vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -559,8 +503,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot5"){
         db.query(
-            "UPDATE roombook SET slot5 = ? WHERE date=? AND roomno=?;",
-            [voldslot,vdate,vroomno],
+            "UPDATE roombook SET slot5 = '0' WHERE date=? AND roomno=?;",
+            [vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -577,8 +521,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot6"){
         db.query(
-            "UPDATE roombook SET slot6 = ? WHERE date=? AND roomno=?;",
-            [voldslot,vdate,vroomno],
+            "UPDATE roombook SET slot6 = '0' WHERE date=? AND roomno=?;",
+            [vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -595,8 +539,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot7"){
         db.query(
-            "UPDATE roombook SET slot7 = ? WHERE date=? AND roomno=?;",
-            [voldslot,vdate,vroomno],
+            "UPDATE roombook SET slot7 = '0' WHERE date=? AND roomno=?;",
+            [vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -687,26 +631,6 @@ app.post("/deleteuser", (req,res)=>{
     db.query(
         "DELETE FROM users WHERE username = ? ",
         [usermail],
-        (err,result) =>{
-            if(err){
-                console.log("why");
-                console.log(err);
-            }
-            else{
-                console.log("ok");
-                //let abc=result[0]
-                console.log(result);
-                res.send(result);    
-            }
-        }
-    );
-});
-
-//admin check all booked slots
-app.post("/admincheckbook", (req,res)=>{
-    const usermail=req.body.usermail;
-    db.query(
-        "SELECT * FROM bookedroom",
         (err,result) =>{
             if(err){
                 console.log("why");

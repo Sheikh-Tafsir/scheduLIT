@@ -23,11 +23,6 @@ import Dash from './Dash';
 import Menusrvc from './Menusrvc';
 import Adminlogin from './Adminlogin';
 import Userview from './Userview';
-import Adminviewbooks from './Adminviewbooks';
-import Adminservice from './Adminservice';
-import Adminmenusrvc from './Adminmenusrvc';
-import Changepass from './Changepass';
-
 
 /*import { useState } from "react";
 import $ from "jquery";
@@ -93,18 +88,13 @@ const App = () => {
         <Route path='/authorization' element={<Authorization/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/forgetpass' element={<Forgetpass/>} />
-        <Route path='/changepass' element={<Changepass/>} />
         <Route path='/calender' element={<Calender/>} />
         <Route path='/bookslot' element={<Bookslot/>} />
         <Route path='/checkbook' element={<Checkbook/>} />
         <Route path='/dash' element={<Dash/>} />
         <Route path='/menusrvc' element={<Menusrvc/>} />
         <Route path='/admnlgn' element={<Adminlogin/>} />
-        <Route path='/adminviewusers' element={<Userview/>} />
-        <Route path='/adminviewbooks' element={<Adminviewbooks/>} />
-        <Route path='/adminservice' element={<Adminservice/>} />
-        <Route path='/adminmenusrvc' element={<Adminmenusrvc/>} />
-
+        <Route path='/userview' element={<Userview/>} />
       </Routes>
     </div>
   )

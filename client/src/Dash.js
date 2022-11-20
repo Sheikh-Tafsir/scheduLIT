@@ -45,9 +45,8 @@ const Dash = () => {
                             <h3>Department: </h3>
                             <p >{item.dept} </p> <br/>
                             <h3>Available Rooms: </h3>
-                            {item.dept== "CSE"? <p>301 302 205 105 106</p>: <p>303 304 103 104</p>}<br/>
+                            {item.dept== "CSE"? <p>301 302 205 105 106</p>: <p>303 304 103 104</p>}
                             {/*<p >{loggedstat} </p> <br/>*/}
-                            <a href="/changepass">Change password?</a>
                             
                         </div>
                 </div>

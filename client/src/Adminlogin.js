@@ -29,7 +29,7 @@ const Adminlogin = () => {
                 /*let loggedstat=localStorage.getItem("loggedstat");
                 alert("1 " + loggedstat);
                 alert("1user " + usrname);*/
-                window.open("/adminservice", "_top");
+                window.open("/userview", "_top");
             }
         });
         //alert("succc");
@@ -41,8 +41,8 @@ const Adminlogin = () => {
         <div className="lgn" data-aos="flip-right">
             <form className="logfrm">
                 <h2>Admin Log In</h2>
-                <label htmlFor="name"><BsFillPersonFill/> Name: </label><br/>
-                <input type="email" id="name" name="name" placeholder="Insert Your Name" onChange={(event) => {setUsername(event.target.value);}}/><br/>
+                <label htmlFor="name"><BsFillPersonFill/> Email: </label><br/>
+                <input type="email" id="name" name="name" placeholder="Insert Your Email" onChange={(event) => {setUsername(event.target.value);}}/><br/>
                 <label htmlFor="pass"><RiLockPasswordFill/> Password: </label><br/>
                 <input type="password" id="pass" name="pass" placeholder="Insert Your Password" onChange={(event) => {setPassword(event.target.value);}}/><br/>
                 <p>{loginStatus}</p>

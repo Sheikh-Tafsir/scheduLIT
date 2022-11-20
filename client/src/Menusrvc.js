@@ -29,10 +29,10 @@ const Menusrvc = () => {
                 <a href="/dash" className="headmenuopt">Profile</a>
             </div>
         </div>
-        {/*<div className="menubut">
+        <div className="menubut">
             <FiMenu class="fimenu" onClick={() => menuscrolfunc()} id="menuicon"></FiMenu>
             <HiOutlineMenuAlt1 class="fimenu" onClick={() => menuclosfunc()} id="menualticon"></HiOutlineMenuAlt1>
-        </div>*/}
+        </div>
     </div>
   )
 }
