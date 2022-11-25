@@ -1,7 +1,6 @@
 <h1 align="center">scheduLIT</h1>
 <div align="center">
 
-   [![GitHub Version](https://img.shields.io/github/release/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/releases) 
    [![Github Star](https://img.shields.io/github/stars/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/stargazers) 
    [![Github Fork](https://img.shields.io/github/forks/Sheikh-Tafsir/scheduLITt.svg?style=for-the-badge)](https://github.com/Sheikh-Tafsir/scheduLITt/network/members) 
    [![License](https://img.shields.io/badge/license-MIT%20license-orange.svg?longCache=true&style=for-the-badge)](https://github.com/Sheikh-Tafsir/codeDOC/blob/main/LICENSE)
@@ -14,6 +13,17 @@
 
 
 ### Homepage
+<table>
+    <tr>
+      <td align="center">
+        ![localhost_](https://user-images.githubusercontent.com/83116065/204002862-5e1100e9-6774-4454-87ef-1111dce6196e.png)
+      </td>
+      <td align="center">
+         ![localhost1_](https://user-images.githubusercontent.com/83116065/204002964-d0edd235-dc3c-484f-90f8-8a5e3a45ca0f.png)
+      </td>
+    </tr>
+</table>
+
 
 ### Class Diagram
 ![Context](https://user-images.githubusercontent.com/83116065/199680009-21dfd0a4-6e29-4172-8f75-7bb74dd96957.png)
@@ -43,15 +53,3 @@
 ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white)
 
 
-## Core Team
-<table>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/Sheikh-Tafsir">
-            <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
-            <br />
-            <sub><b>Tafsir Rahman</b></sub>
-        </a>
-      </td>
-    </tr>
-</table>
