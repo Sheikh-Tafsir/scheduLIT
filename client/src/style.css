@@ -12,7 +12,6 @@
         height:10vh;
         /*background: rgba(36, 36, 36, 0.1);*/
         z-index:100;
-        
         transition: linear 1s;
         overflow: hidden;
     }
@@ -215,54 +214,48 @@
     }
     .slideimgbut{
         display:flex;
+        flex-direction:column;
         background: rgba(255,255,255,0.1);
         backdrop-filter:blur(1rem);
         border-radius:1rem;
-        margin-top:-10rem;
-        margin-left:55rem;
-        width:29.3%;
-        height:12vh;
+        margin-top:-65vh;
+        margin-left:88vw;
+        width:10vw;
+        height:35vh;
         box-shadow:6px 6px 12px rgba(0,0,0,0.1),-6px -6px 12px rgba(0,0,0,0.1);
     }
-    .slideimgbut button{
-        border:2px solid transparent;
-        background-color: transparent;
-        margin-right:0.5rem;
-        margin-left:0.5rem;
-        margin-top:0.2rem;
-    }
+
     .slideimgbut img{
         height:5rem;
-        width:8rem;
+        width:90%;
+        margin:auto;
         border-radius:10px;
     }
     .herodesc{
-        width:45%;
+        width:70%;
         color:white;
-        position:relative;
-        top:-47.7rem;
-        padding-left:7rem;
-        padding-top:12rem;
+        position:relative; 
+        margin-left:15vw;
+        margin-top:-29vh; 
         z-index:2;
-        height:100vh;
+        text-align: center;
+        
+    }
+    .herodesc h1{
+        font-size:5.5em;
         
     }
     .herodesc p{
         font-size:1.5rem;
         margin-left:-1.4rem;
     }
-    .herodesc h1{
-        font-size:5rem;
-        transform: scaleX(1.1);
-    }
+
     .herodesc h2{
         display: inline;
         font-size:5rem;
         margin-left:-1.6rem;
     }
-    .herodescc{
-        
-    }
+
     .herodescbld{
         font-weight:400;
         margin-right:2rem;
@@ -270,13 +263,17 @@
     .herodesc button{
         border:none;
         height:2.5rem;
-        width:6rem;
+        width:10rem;
         font-size:1.2rem;
         color:white;
-        margin-top:1rem;
-        margin-left:-1.4rem;
-        background: linear-gradient(145deg,#3b5e53,#34413d);
+        margin-top:1vh;
+       
+        background: linear-gradient(145deg,#41806d,#3b5e53);
         transition:transform 0.1s;
+    }
+    .herodesc a{
+        text-decoration: none;
+        color:white;
     }
 
 }
@@ -308,7 +305,7 @@
         border-radius:10px;
     }
     .herodesc{
-        width:60%;
+        width:70%;
         color:white;
         /*margin-top:-35rem;*/
         position:relative;
@@ -392,12 +389,8 @@
         background: linear-gradient(145deg,#3b5e53,#34413d);*/
         background-color: white;
         color:black;
-        /*box-shadow: 0 15px 45px rgba(0,0,0,0.1);
-        width:85%;
-        margin:auto;*/
-        margin-top:-90vh;
         height:90vh; 
-        /*border-radius:15px;*/
+        margin-top:36vh;
     }
     .abt h2{
         /*color:white;*/
@@ -517,9 +510,12 @@
         font-size:0.9rem;
         border-radius:5px;
         border:none;
-    
         font-weight: bold;
         transition: transform 0.2s;
+    }
+    .abtdesc a{
+        text-decoration: none;
+        color:white;
     }
 }
 @media screen and (max-width: 991px) {
@@ -1269,6 +1265,9 @@ form button:hover{
     margin-top:0rem;
     margin-bottom:-1rem;
 }
+.footmenu{
+    
+}
 .footmenu a{
     text-decoration: none;
     color:white;
@@ -1573,6 +1572,8 @@ form button:hover{
     }
     .register{
         background: url("https://raw.githubusercontent.com/trananhtuat/animated-login-registration/main/Screenshot_2.png");
+        background: url("https://i.ibb.co/7pXc6ym/Copy-of-progress.png");
+        
         background-repeat: no-repeat;
         background-size: 100vw 100vh;
         overflow:hidden;
@@ -1886,12 +1887,13 @@ form button:hover{
 }
 .calenderpart{
     background: url("https://raw.githubusercontent.com/trananhtuat/animated-login-registration/main/Screenshot_1.png");
+    background: url("https://i.ibb.co/D7P0HKX/enter.png");
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     height:100vh;
 }
 .calenderpart h2{
-    color:#3b5e53;
+    color:white;
     padding-top:16vh;
     margin-left:50%;
     font-size:2rem;
@@ -1959,6 +1961,7 @@ abbr[title] {
 }
 .react-calendar__tile--now {
     background: #6f48eb;
+    background: rgb(3, 234, 234);
     border-radius: 6px;
     font-weight: bold;
     color: white;
@@ -2072,7 +2075,7 @@ abbr[title] {
 .employeelist{
     color:#3b5e53;
     background-color: white;
-    height:64vh;
+    height:72vh;
     width:14vw;
     margin-left:2vw;
     margin-top:2vh;
@@ -2347,12 +2350,13 @@ abbr[title] {
     }
     .dashfrm{
         width:30%;
-        height:65%;
+        height:70%;
         margin-left:50%;
         position:relative;
         background-color: white;
         border-radius: 10px;
         box-shadow: 0px 15px 45px rgba(0,0,0,0.1);
+        
     }
     .dashfrm img{
         height:30%;
@@ -2361,6 +2365,7 @@ abbr[title] {
         margin-left:35%;
         margin-top:8%;
         margin-bottom:5%;
+        visibility: hidden;
     }
 
     .dashfrm h3{
@@ -2369,6 +2374,11 @@ abbr[title] {
         text-align: center;
         margin-bottom:3%
         
+    }
+    .dashfrm a{
+        color: #3b5e53;
+        margin-left:25%;
+        font-size:1.2em;
     }
     .dashfrmstat{
         margin-left:7%;
@@ -2528,7 +2538,98 @@ abbr[title] {
     }
 }
 
+#admnsrvc{
+    padding-top:10vh;
+    height:100vh;
+}
 
+
+/*----------------------------------------------*/
+.roomroutine{
+    background: linear-gradient(145deg,#3b5e53,#34413d);
+    height:100vh;
+    color:white;
+    text-align: center;
+}
+
+.roomroutine h2{
+    font-size:2em;
+    padding-top:15vh;
+    margin-bottom:5vh;
+}
+.roomroutine label{
+    font-size:1.5em;
+    font-weight: 600;
+    
+    
+}
+.chooseroom{
+    width:20%;
+    height:7%;
+    font-size:1.3em;
+    text-align: center;
+    margin-bottom:5vh;
+}
+.roomroutinepnt{
+    background-color: transparent;
+    width:80%;
+    margin:auto;
+    display:flex;
+    height:7vh;
+}
+
+.roomroutinepnt p,input{
+    background-color: white;
+    color:black;
+    outline: none;
+    border:none;
+    margin:1px;
+    width:10%;
+    font-size:1.2em;
+}
+.roomroutinepnthd p{
+    background-color: pink;
+}
+.roomroutinepnthd input{
+    background-color: pink;
+}
+.roomroutinepnt input{
+    outline: none;
+    border:none;
+    margin:1px;
+    text-align: center;
+}
+.roomroutinepnt p{
+    line-height: 2.5em;
+    cursor:default;
+}
+
+.roomroutine button{
+    height:5vh;
+    width:10vw;
+    background: #426f62;
+    color:white;
+    border:none;
+    font-size:1.2em;
+    margin-top:5vh;
+    cursor: pointer;
+}
+.roomroutine button:hover{
+    background-color: #41806d;    
+}
+/*.roomroutinepnt:hover p{
+    background-color: blue;
+    color:white;
+ 
+}
+.roomroutinepnt:hover input{
+    background-color: blue;
+    color:white;
+}*/
+.deletestat button{
+    margin-top:0vh;
+
+}
 
 /*-------------------scrollbar------------------------*/
 ::-webkit-scrollbar {

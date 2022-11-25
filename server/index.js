@@ -70,7 +70,7 @@ app.post("/create", (req,res)=>{
                 };
                 sendMail({
                     to:username,
-                    from:"dev.teamroket@gmail.com",
+                    from:"teamschedulit@gmail.com",
                     subject: "ScheduLIT",
                     text:"Useremail: " + username + "    password: " + password,
                 });
@@ -85,7 +85,7 @@ app.post("/create", (req,res)=>{
 app.post("/forget", (req,res)=>{
     console.log(req.body.username);
     const username = req.body.username;
-    const password = "12345";
+    const password = "31121";
 
     var mod = 1e9 + 7;
     var base = 11;
@@ -134,7 +134,7 @@ app.post("/forget", (req,res)=>{
                 };
                 sendMail({
                     to:username,
-                    from:"dev.teamroket@gmail.com",
+                    from:"teamschedulit@gmail.com",
                     subject: "ScheduLIT",
                     text:"Useremail: " + username + "    password: " + password,
                 });
@@ -144,6 +144,60 @@ app.post("/forget", (req,res)=>{
 
 });
 
+
+//change pass
+app.post("/changepass", (req,res)=>{
+    console.log(req.body.username);
+    const username = req.body.username;
+    const password = req.body.password;
+
+    var mod = 1e9 + 7;
+    var base = 11;
+    var cur = 1, hash = 0;
+    for (let i = 0; i < password.length; i++) {
+        hash = (hash + cur * password.charCodeAt(i));
+        //console.log(hash);
+        cur = (cur * base) % mod;
+    }
+    const hashh=hash
+    
+    tomail=username;
+
+    db.query(
+        //"SELECT password FROM users WHERE username = ?",
+        "UPDATE users SET password = ? WHERE username = ?",
+        [hashh,username],
+        (err,result) =>{
+            //console.log(result[0]);
+            if(err){
+                console.log("why");
+                res.send({message:err});
+            }
+            else{
+                res.send("password sent");
+
+                const sendMail = async (msg) => {
+                    try{
+                        await sgMail.send(msg);
+                        console.log("Message sent succesfully!");
+                    }
+                    catch(error){
+                        console.log(error);
+                        if(error.response){
+                            console.error(error.response.body);
+                        }
+                    }
+                };
+                sendMail({
+                    to:username,
+                    from:"teamschedulit@gmail.com",
+                    subject: "ScheduLIT",
+                    text:"Useremail: " + username + "    password: " + password,
+                });
+            }
+        }
+    );
+});
 
 //login
 app.post("/log", (req,res)=>{
@@ -383,10 +437,11 @@ app.post("/daybookedsaved", (req,res)=>{
     const vslot=req.body.vslot;
     const vduration=req.body.vduration;
     const vusrname=req.body.vusrname;
+    const voldslot=req.body.voldslot;
 
     db.query(
-        "INSERT INTO bookedroom (roomno,date,day,slotno,slot,email) VALUES (?,?,?,?,?,?)",
-        [vroomno,vdate,vday,vslot,vduration,vusrname],
+        "INSERT INTO bookedroom (roomno,date,day,slotno,slot,email,time,oldslot) VALUES (?,?,?,?,?,?,?,?)",
+        [vroomno,vdate,vday,vslot,vduration,vusrname,vtime,voldslot],
         (err,result) =>{
             if(err){
                 console.log(err);
@@ -427,12 +482,13 @@ app.post("/deletebookingrout", (req,res)=>{
     const vdate=req.body.vdate;
     const vroomno=req.body.vroomno;
     const vslot=req.body.vslot;
+    const voldslot=req.body.voldslot;
     console.log(vslot);
     if(vslot=="slot1"){
         console.log("taf1");
         db.query(
-            "UPDATE roombook SET slot1 = '0' WHERE date=? AND roomno=?;",
-            [vdate,vroomno],
+            "UPDATE roombook SET slot1 = ? WHERE date=? AND roomno=?;",
+            [voldslot,vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -449,8 +505,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot2"){
         db.query(
-            "UPDATE roombook SET slot2 = '0' WHERE date=? AND roomno=?;",
-            [vdate,vroomno],
+            "UPDATE roombook SET slot2 = ? WHERE date=? AND roomno=?;",
+            [voldslot,vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -467,8 +523,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot3"){
         db.query(
-            "UPDATE roombook SET slot3 = '0' WHERE date=? AND roomno=?;",
-            [vdate,vroomno],
+            "UPDATE roombook SET slot3 = ? WHERE date=? AND roomno=?;",
+            [voldslot,vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -485,8 +541,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot4"){
         db.query(
-            "UPDATE roombook SET slot4 = '0' WHERE date=? AND roomno=?;",
-            [vdate,vroomno],
+            "UPDATE roombook SET slot4 = ? WHERE date=? AND roomno=?;",
+            [voldslot,vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -503,8 +559,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot5"){
         db.query(
-            "UPDATE roombook SET slot5 = '0' WHERE date=? AND roomno=?;",
-            [vdate,vroomno],
+            "UPDATE roombook SET slot5 = ? WHERE date=? AND roomno=?;",
+            [voldslot,vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -521,8 +577,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot6"){
         db.query(
-            "UPDATE roombook SET slot6 = '0' WHERE date=? AND roomno=?;",
-            [vdate,vroomno],
+            "UPDATE roombook SET slot6 = ? WHERE date=? AND roomno=?;",
+            [voldslot,vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -539,8 +595,8 @@ app.post("/deletebookingrout", (req,res)=>{
     }
     else if(vslot=="slot7"){
         db.query(
-            "UPDATE roombook SET slot7 = '0' WHERE date=? AND roomno=?;",
-            [vdate,vroomno],
+            "UPDATE roombook SET slot7 = ? WHERE date=? AND roomno=?;",
+            [voldslot,vdate,vroomno],
             (err,result) =>{
                 if(err){
                     console.log("why");
@@ -646,6 +702,144 @@ app.post("/deleteuser", (req,res)=>{
     );
 });
 
+//admin check all booked slots
+app.post("/admincheckbook", (req,res)=>{
+    const usermail=req.body.usermail;
+    db.query(
+        "SELECT * FROM bookedroom",
+        (err,result) =>{
+            if(err){
+                console.log("why");
+                console.log(err);
+            }
+            else{
+                console.log("ok");
+                //let abc=result[0]
+                console.log(result);
+                res.send(result);    
+            }
+        }
+    );
+});
+
+
+//admin view routine 
+app.post("/viewroomroutine", (req,res)=>{
+    const roomno=req.body.roomno;
+    const day=req.body.day;
+    //console.log(roomno);
+    db.query(
+        "SELECT * FROM roomroutine where roomno = ? and day= ? ",
+        [roomno, day],
+        (err,result) =>{
+            if(err){
+                console.log("why");
+                console.log(err);
+            }
+            else{
+                console.log("ok");
+                //let abc=result[0]
+                console.log(result);
+                res.send(result);    
+            }
+        }
+    );
+});
+
+//update routine
+app.post("/updateroutine", (req,res)=>{
+    //const roomroutin=req.body.roomroutin;
+    //const roomroutin_slot1=req.body.roomroutin_slot1;
+    const routine_roomno=req.body.routine_roomno;
+    const routine_day=req.body.routine_day;
+    const routine_slot1=req.body.routine_slot1;
+    const routine_slot2=req.body.routine_slot2;
+    const routine_slot3=req.body.routine_slot3;
+    const routine_slot4=req.body.routine_slot4;
+    const routine_slot5=req.body.routine_slot5;
+    const routine_slot6=req.body.routine_slot6;
+    const routine_slot7=req.body.routine_slot7;
+    //console.log(routine_roomno +" "+ routine_day +" "+ routine_slot1 +" "+ routine_slot2 +" "+ routine_slot3 +" "+ routine_slot4 +" "+ routine_slot5 +" "+ routine_slot6 +" "+ routine_slot7);
+    
+    db.query(
+        "UPDATE roomroutine SET slot1 = ?, slot2 = ?,slot3 = ?, slot4 = ?, slot5 = ?, slot6 = ?, slot7 = ? WHERE roomno= ? AND day= ? ",
+        [routine_slot1, routine_slot2, routine_slot3, routine_slot4, routine_slot5, routine_slot6, routine_slot7, routine_roomno, routine_day],
+        (err,result) =>{
+            if(err){
+                console.log("why");
+                console.log(err);
+            }
+            else{
+                console.log("ok");
+                //let abc=result[0]
+                console.log(result);
+                res.send(result);    
+            }
+        }
+    );
+    
+});
+
+
+//update room book routine
+app.post("/updateroombookroutine", (req,res)=>{
+    //const roomroutin=req.body.roomroutin;
+    //const roomroutin_slot1=req.body.roomroutin_slot1;
+    const routine_roomno=req.body.routine_roomno;
+    const routine_day=req.body.routine_day;
+    const routine_slot1=req.body.routine_slot1;
+    const routine_slot2=req.body.routine_slot2;
+    const routine_slot3=req.body.routine_slot3;
+    const routine_slot4=req.body.routine_slot4;
+    const routine_slot5=req.body.routine_slot5;
+    const routine_slot6=req.body.routine_slot6;
+    const routine_slot7=req.body.routine_slot7;
+    //console.log(routine_roomno +" "+ routine_day +" "+ routine_slot1 +" "+ routine_slot2 +" "+ routine_slot3 +" "+ routine_slot4 +" "+ routine_slot5 +" "+ routine_slot6 +" "+ routine_slot7);
+    
+    db.query(
+        "UPDATE roombook SET slot1 = ?, slot2 = ?,slot3 = ?, slot4 = ?, slot5 = ?, slot6 = ?, slot7 = ? WHERE roomno= ? AND day= ? ",
+        [routine_slot1, routine_slot2, routine_slot3, routine_slot4, routine_slot5, routine_slot6, routine_slot7, routine_roomno, routine_day],
+        (err,result) =>{
+            if(err){
+                console.log("why");
+                console.log(err);
+            }
+            else{
+                console.log("ok");
+                //let abc=result[0]
+                console.log(result);
+                res.send(result);    
+            }
+        }
+    );
+    
+});
+
+//update/deletd bookedroom routine
+app.post("/deletebookroom", (req,res)=>{
+    //const roomroutin=req.body.roomroutin;
+    //const roomroutin_slot1=req.body.roomroutin_slot1;
+    const routine_roomno=req.body.routine_roomno;
+    const routine_day=req.body.routine_day;
+    console.log("delete here");
+    db.query(
+        "DELETE FROM bookedroom WHERE roomno=? AND day=?",
+        [routine_roomno, routine_day],
+        (err,result) =>{
+            if(err){
+                console.log("why");
+                console.log(err);
+            }
+            else{
+                console.log("ok");
+                //let abc=result[0]
+                console.log(result);
+                res.send(result);    
+            }
+        }
+    );
+    
+});
 
 app.post("/slotday", (req,res)=>{
     bookday= req.body.bookday;

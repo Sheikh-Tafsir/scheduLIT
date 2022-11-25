@@ -16,9 +16,9 @@ const  Footer = () => {
         <div className="footer">
             <img src="https://i.ibb.co/y67Dq4h/pq.png" height="100rem" width="150rem" alt="footerlogo"></img>
             <div className="footmenu">
-                <a href="#about" >About</a>
-                <a href="#works">Projects</a>
-                <a href="#teams">Team</a>
+                <a href="#About" >About</a>
+                <a href="#Service">Service</a>
+                <a href="#Contacts">Contacts</a>
             </div>
             <div className="footicons">
                 <a href="https://www.facebook.com/tmr.rahman"><FaFacebook className="footicon"></FaFacebook></a>

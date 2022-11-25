@@ -52,6 +52,7 @@ const calender = () => {
         //alert(valDatee);
         if(valDateeY == presyear){
             if(valDateeM < presmonth){
+                window.location.reload();
                 document.querySelector(".emptyslotshead h2").innerHTML="Day already Past";
                 document.querySelector(".emptyslotshead").style.visibility="visible";
                 document.querySelector(".emptyslotshead").style.transform="scale(1)";
@@ -59,6 +60,7 @@ const calender = () => {
             }
             else if(valDateeM == presmonth){
                 if(valDateeD < presday){
+                    window.location.reload();
                     document.querySelector(".emptyslotshead h2").innerHTML="Day already Past";
                     document.querySelector(".emptyslotshead").style.visibility="visible";
                     document.querySelector(".emptyslotshead").style.transform="scale(1)";
@@ -68,15 +70,25 @@ const calender = () => {
                     bookSlotday(valDay,valDatee); 
                 }
                 else{
+                    window.location.reload();
                     document.querySelector(".emptyslotshead h2").innerHTML="Book within 14 days range";
                     document.querySelector(".emptyslotshead").style.visibility="visible";
                     document.querySelector(".emptyslotshead").style.transform="scale(1)";
                 }
             }
-            else{
-                if((30-valDateeD + 31-presday)<14){
+            else if(valDateeM-1 == presmonth){
+                /*alert(valDateeD);
+                if((31-presday+ valDateeD)<14){
                     bookSlotday(valDay,valDatee); 
-                }
+                }*/
+                bookSlotday(valDay,valDatee); 
+            }
+            else{
+                window.location.reload();
+                document.querySelector(".emptyslotshead h2").innerHTML="Book within 14 days range";
+                document.querySelector(".emptyslotshead").style.visibility="visible";
+                document.querySelector(".emptyslotshead").style.transform="scale(1)";
+                
             }
         }
         else if(valDateeY > presyear){
@@ -84,15 +96,18 @@ const calender = () => {
                 bookSlotday(valDay,valDatee); 
             }
             else{
+                window.location.reload();
                 document.querySelector(".emptyslotshead h2").innerHTML="Book within 14 days range";
                 document.querySelector(".emptyslotshead").style.visibility="visible";
                 document.querySelector(".emptyslotshead").style.transform="scale(1)";
+                
             }
         }
         else{
             document.querySelector(".emptyslotshead h2").innerHTML="Day already Past";
             document.querySelector(".emptyslotshead").style.visibility="visible";
             document.querySelector(".emptyslotshead").style.transform="scale(1)";
+            window.location.reload();
         }
         //bookSlotday(valDay,valDatee); 
         
@@ -111,7 +126,7 @@ const calender = () => {
         });
         /*if(valDay=="Sat" || valDay=="Fri")document.querySelector(".emptyslotshead").style.visibility="hidden";
         else document.querySelector(".emptyslotshead").style.visibility="visible";*/
-        if(valDay=="Sat" || valDay=="Sun")document.querySelector(".emptyslotshead h2").innerHTML="No CLass on Weekends";
+        if(valDay=="Sat" || valDay=="Sun")document.querySelector(".emptyslotshead h2").innerHTML="No Class on Weekends";
         else document.querySelector(".emptyslotshead h2").innerHTML="Choose From Free Slots";
         //document.querySelector(".emptyslotshead").style.transition = "all 2s";
         document.querySelector(".emptyslotshead").style.visibility="visible";
@@ -120,7 +135,7 @@ const calender = () => {
 
 
     //book slot time
-    const bookSlot = (vtime,vday,vdate,vroomno,vslot) => {
+    const bookSlot = (vtime,vday,vdate,vroomno,vslot,vdur,voldslot) => {
         //alert(vtime +" "+ vday +" "+ vdate +" "+ vroomno +" "+ vslot +" "+ usrname);
         document.querySelector(".surebookque").classList.add("surebookque-tog");
         document.querySelector(".yesbook").addEventListener("click", yesFunction);
@@ -128,17 +143,16 @@ const calender = () => {
 
         function yesFunction(){
             Axios.post('http://localhost:3001/daybooked',{
-                vtime:vtime,
                 vday:vday,
                 vdate:vdate,
                 vroomno:vroomno,
                 vslot:vslot,
-                vduration:1,
+                vduration:vdur,
             }).then((response) =>{
                 //alert(JSON.stringify(response.data));
             });
 
-            saveSlot(vtime,vday,vdate,vroomno,vslot);
+            saveSlot(vtime,vday,vdate,vroomno,vslot,vdur,voldslot);
             //alert("yes");
             document.querySelector(".surebookque").classList.remove("surebookque-tog");
         }
@@ -153,7 +167,7 @@ const calender = () => {
     }
 
     //save slot time and username in notific
-    const saveSlot = (vtime,vday,vdate,vroomno,vslot) => {
+    const saveSlot = (vtime,vday,vdate,vroomno,vslot,vdur,voldslot) => {
         //alert(vtime +" "+ vday +" "+ vdate +" "+ vroomno +" "+ vslot +" "+ usrname);
         
         Axios.post('http://localhost:3001/daybookedsaved',{
@@ -162,8 +176,9 @@ const calender = () => {
             vdate:vdate,
             vroomno:vroomno,
             vslot:vslot,
-            vduration:1,
+            vduration:vdur,
             vusrname:usrname,
+            voldslot:voldslot,
         }).then((response) =>{
             //alert(JSON.stringify(response.data));
         });
@@ -213,13 +228,14 @@ const calender = () => {
                      return <div>
                         <div key={index} class="employeelist" data-aos="fade-left">
                             <p className="bookRoomNo">{item.roomno} </p>
-                            {item.slot1 == '1'? <p className="bookedSlot">8.00 - 9:15 </p>: item.slot1 == '0.25'? <p className="half1FreeSlot">8.00 - 9:15</p> : item.slot1 == '0.75'? <p className="half2FreeSlot">8.00 - 9:15 </p> :<p className="freeSlot" onClick={() =>bookSlot("8.00-9:15", item.day, item.date, item.roomno,"slot1")}>8.00 - 9:15 </p>}
-                            {item.slot2 == '1'? <p className="bookedSlot">9.15 - 10.30 </p>: item.slot2 == '0.25'? <p className="half1FreeSlot">9.15 - 10.30 </p> : item.slot2 == '0.75'? <p className="half2FreeSlot">9.15 - 10.30 </p> :<p className="freeSlot" onClick={() =>bookSlot("9.15-10.30", item.day, item.date, item.roomno,"slot2")}>9.15 - 10.30 </p>}
-                            {item.slot3 == '1'? <p className="bookedSlot">10.30 - 11.45 </p>: item.slot3 == '0.25'? <p className="half1FreeSlot">10.30 - 11.45</p> : item.slot3 == '0.75'? <p className="half2FreeSlot">10.30 - 11.45</p> :<p className="freeSlot" onClick={() =>bookSlot("10.30-11.45", item.day, item.date, item.roomno,"slot3")}>10.30 - 11.45 </p>}
-                            {item.slot4 == '1'? <p className="bookedSlot">11.45 - 1.00 </p>: item.slot4 == '0.25'? <p className="half1FreeSlot">11.45 - 1.00</p> : item.slot4 == '0.75'? <p className="half2FreeSlot">11.45 - 1.00</p> :<p className="freeSlot" onClick={() =>bookSlot("11.45-1.00", item.day, item.date, item.roomno,"slot4")}>11.45 - 1.00 </p>}
-                            {item.slot5 == '1'? <p className="bookedSlot">1.00 - 2.30 </p>: item.slot5 == '0.25'? <p className="half1FreeSlot">>1.00 - 2.30 </p> : item.slot5 == '0.75'? <p className="half2FreeSlot">>1.00 - 2.30 </p> :<p className="freeSlot" onClick={() => bookSlot("1.00-2.30", item.day, item.date, item.roomno,"slot5")}>1.00 - 2.30 </p>}
-                            {item.slot6 == '1'? <p className="bookedSlot">2.30 - 3.45 </p>: item.slot6 == '0.25'? <p className="half1FreeSlot">2.30 - 3.45 </p> : item.slot6 == '0.75'? <p className="half2FreeSlot">2.30 - 3.45 </p> :<p className="freeSlot" onClick={() =>bookSlot("2.30-3.45", item.day, item.date, item.roomno,"slot6")}>2.30 - 3.45 </p>}
-                            {item.slot7 == '1'? <p className="bookedSlot">3.45 - 5.00 </p>: item.slot7 == '0.25'? <p className="half1FreeSlot">3.45 - 5.00 </p> : item.slot7 == '0.75'? <p className="half2FreeSlot">3.45 - 5.00 </p> :<p className="freeSlot" onClick={() =>bookSlot("3.45-5.00", item.day, item.date, item.roomno,"slot7")}>3.45 - 5.00</p>}
+                            <p className="bookRoomNo">{item.seatno} Seats</p>
+                            {item.slot1 == '1'? <p className="bookedSlot">8.00 - 9:15 </p>: item.slot1 == '0.25'? <p className="half1FreeSlot" onClick={() =>bookSlot("08.40-09:15", item.day, item.date, item.roomno,"slot1",1,0.25)}>8.00 - 9:15</p> : item.slot1 == '0.75'? <p className="half2FreeSlot" onClick={() =>bookSlot("08.00-08:40", item.day, item.date, item.roomno,"slot1",1,0.75)}>8.00 - 9:15 </p> :<p className="freeSlot" onClick={() =>bookSlot("8.00-9:15", item.day, item.date, item.roomno,"slot1",1,0)}>8.00 - 9:15 </p>}
+                            {item.slot2 == '1'? <p className="bookedSlot">9.15 - 10.30 </p>: item.slot2 == '0.25'? <p className="half1FreeSlot" onClick={() =>bookSlot("09.55-10:30", item.day, item.date, item.roomno,"slot2",1,0.25)}>9.15 - 10.30 </p> : item.slot2 == '0.75'? <p className="half2FreeSlot" onClick={() =>bookSlot("09:15:09:55", item.day, item.date, item.roomno,"slot2",1,0.75)}>9.15 - 10.30 </p> :<p className="freeSlot" onClick={() =>bookSlot("9.15-10.30", item.day, item.date, item.roomno,"slot2",1,0)}>9.15 - 10.30 </p>}
+                            {item.slot3 == '1'? <p className="bookedSlot">10.30 - 11.45 </p>: item.slot3 == '0.25'? <p className="half1FreeSlot" onClick={() =>bookSlot("11.10-11:45", item.day, item.date, item.roomno,"slot3",1,0.25)}>10.30 - 11.45</p> : item.slot3 == '0.75'? <p className="half2FreeSlot" onClick={() =>bookSlot("10:30-11:10", item.day, item.date, item.roomno,"slot3",1,0.75)}>10.30 - 11.45</p> :<p className="freeSlot" onClick={() =>bookSlot("10.30-11.45", item.day, item.date, item.roomno,"slot3",1,0)}>10.30 - 11.45 </p>}
+                            {item.slot4 == '1'? <p className="bookedSlot">11.45 - 1.00 </p>: item.slot4 == '0.25'? <p className="half1FreeSlot" onClick={() =>bookSlot("12.30-01:00", item.day, item.date, item.roomno,"slot4",1,0.25)}>11.45 - 1.00</p> : item.slot4 == '0.75'? <p className="half2FreeSlot" onClick={() =>bookSlot("11:45-12:30", item.day, item.date, item.roomno,"slot4",1,0.75)}>11.45 - 1.00</p> :<p className="freeSlot" onClick={() =>bookSlot("11.45-1.00", item.day, item.date, item.roomno,"slot4",1,0)}>11.45 - 1.00 </p>}
+                            {item.slot5 == '1'? <p className="bookedSlot">1.00 - 2.30 </p>: item.slot5 == '0.25'? <p className="half1FreeSlot" onClick={() =>bookSlot("01.00-02:30", item.day, item.date, item.roomno,"slot5",1,0.25)}>1.00 - 2.30 </p> : item.slot5 == '0.75'? <p className="half2FreeSlot" onClick={() =>bookSlot("01.00-02:30", item.day, item.date, item.roomno,"slot5",1,0.75)}>1.00 - 2.30 </p> :<p className="freeSlot" onClick={() => bookSlot("1.00-2.30", item.day, item.date, item.roomno,"slot5",1,0)}>1.00 - 2.30 </p>}
+                            {item.slot6 == '1'? <p className="bookedSlot">2.30 - 3.45 </p>: item.slot6 == '0.25'? <p className="half1FreeSlot" onClick={() =>bookSlot("03.10-03:45", item.day, item.date, item.roomno,"slot6",1,0.25)}>2.30 - 3.45 </p> : item.slot6 == '0.75'? <p className="half2FreeSlot" onClick={() =>bookSlot("02.30-03:10", item.day, item.date, item.roomno,"slot6",1,0.75)}>2.30 - 3.45 </p> :<p className="freeSlot" onClick={() =>bookSlot("2.30-3.45", item.day, item.date, item.roomno,"slot6",1,0)}>2.30 - 3.45 </p>}
+                            {item.slot7 == '1'? <p className="bookedSlot">3.45 - 5.00 </p>: item.slot7 == '0.25'? <p className="half1FreeSlot" onClick={() =>bookSlot("04.30-05:00", item.day, item.date, item.roomno,"slot7",1,0.25)}>3.45 - 5.00 </p> : item.slot7 == '0.75'? <p className="half2FreeSlot" onClick={() =>bookSlot("03.45-04:30", item.day, item.date, item.roomno,"slot7",1,0.75)}>3.45 - 5.00 </p> :<p className="freeSlot" onClick={() =>bookSlot("3.45-5.00", item.day, item.date, item.roomno,"slot7",1,0)}>3.45 - 5.00</p>}
                             {/*<p>{item.slot1} </p>
                             <p>{item.slot2} </p>
                             <p>{item.slot3} </p>

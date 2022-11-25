@@ -16,7 +16,7 @@ const About = () => {
               <h2>More Information about</h2>
               <h2>Islamic Unoversity of Technology</h2>
               <p id="abtdescp">Islamic University of Technology, commonly known as IUT, is an international university located in Gazipur, Bangladesh. IUT offers undergraduate and graduate programmes in Engineering and Technical Education. The university is the only international Engineering university in Bangladesh.</p>
-              <button>Contact Me</button>
+              <button><a href="#Contacts">Contact Me</a></button>
             </div>
           </div>
         </div>

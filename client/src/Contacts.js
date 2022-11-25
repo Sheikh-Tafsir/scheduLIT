@@ -16,7 +16,7 @@ const Contacts = () => {
                     <div className="cntkpnt" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placemeny="center-center">
                         <AiOutlineMail className="cntkpnticons"></AiOutlineMail>
                         <h4>Email</h4>
-                        <p>190041130tafsir@gmail.com</p>
+                        <p>teamschedulit@gmail.com</p>
                         {/*<button><a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqTflxmKpkQKmTDWwrCjJwCJlgDlPDzVtvxXRtkzzsLDwhfVsLhxncRQmPctlQvvMJNnhL" target="_blank" className="cntkpntbut">Mail Us <FaArrowRight className="arricon"></FaArrowRight></a></button>*/}
                         <p>Mail us</p>
                     </div>
