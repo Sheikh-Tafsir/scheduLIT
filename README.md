@@ -13,21 +13,18 @@
 
 
 ### Homepage
-<table>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/Sheikh-Tafsir">
-            <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/Sheikh-Tafsir">
-            <img src="![localhost1_](https://user-images.githubusercontent.com/83116065/204004182-d0061440-3c00-4440-be56-897f01b08319.png)" width="200px;" alt=""/>
-        </a>
-      </td>
-    </tr>
-</table>
 
+<div style="display:flex">
+   ![localhost_](https://user-images.githubusercontent.com/83116065/204004425-1b007720-26c9-4bfd-84fb-0843cf5d1fbd.png)
+   ![localhost1_](https://user-images.githubusercontent.com/83116065/204004441-69df9001-cb58-4cbb-8c54-cc26a2d9dade.png)
+</div>
+
+### Login signup
+
+<div style="display:flex">
+   ![image](https://user-images.githubusercontent.com/83116065/204004698-65684776-ca09-4f70-88d8-6f03a2b8ad9c.png)
+   ![image](https://user-images.githubusercontent.com/83116065/204004809-f468b87e-4846-495f-9bdc-2fa3b3b04adb.png)
+</div>
 
 ### Class Diagram
 ![Context](https://user-images.githubusercontent.com/83116065/199680009-21dfd0a4-6e29-4172-8f75-7bb74dd96957.png)
