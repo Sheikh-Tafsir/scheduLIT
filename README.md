@@ -20,6 +20,13 @@
             <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
         </a>
       </td>
+       <td align="center">
+        <a href="https://github.com/Sheikh-Tafsir">
+            <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
+            <img src="![localhost1_](https://user-images.githubusercontent.com/83116065/204003614-f8a69f54-cf7a-4651-afb6-19eadfbe98b6.png)" width="300px;" alt=""/>
+
+        </a>
+      </td>
     </tr>
 </table>
 
