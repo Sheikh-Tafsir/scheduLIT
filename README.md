@@ -16,9 +16,9 @@
 <table>
     <tr>
       <td align="center">
-        
+        <a href="https://github.com/Sheikh-Tafsir">
             <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
-
+        </a>
       </td>
     </tr>
 </table>
