@@ -32,6 +32,14 @@
    
 </div>
 
+### Services
+
+<div style="display:flex">
+  
+   ![service](https://user-images.githubusercontent.com/83116065/204005709-883f53b2-fdac-4ec9-87c9-bd41c7a2e365.png)
+
+</div>
+
 ### Class Diagram
 ![Context](https://user-images.githubusercontent.com/83116065/199680009-21dfd0a4-6e29-4172-8f75-7bb74dd96957.png)
 
