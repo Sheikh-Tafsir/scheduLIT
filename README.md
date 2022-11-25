@@ -17,13 +17,13 @@
     <tr>
       <td align="center">
          
-        <img src="![localhost_](https://user-images.githubusercontent.com/83116065/204002862-5e1100e9-6774-4454-87ef-1111dce6196e.png)" width="400px;" alt=""/>
-      
+         <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
+            
        </td>
       <td align="center">
          
-         <img src="![localhost1_](https://user-images.githubusercontent.com/83116065/204002964-d0edd235-dc3c-484f-90f8-8a5e3a45ca0f.png)" width="400px;" alt=""/>
-      
+         <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
+            
        </td>
     </tr>
 </table>
