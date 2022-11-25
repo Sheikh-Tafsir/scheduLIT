@@ -16,15 +16,10 @@
 <table>
     <tr>
       <td align="center">
-         
-         <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
-            
-       </td>
-      <td align="center">
-         
-         <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
-            
-       </td>
+        
+            <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
+
+      </td>
     </tr>
 </table>
 
