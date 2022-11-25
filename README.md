@@ -22,7 +22,7 @@
       </td>
       <td align="center">
         <a href="https://github.com/Sheikh-Tafsir">
-            <img src="https://avatars.githubusercontent.com/u/83116065?v=4" width="200px;" alt=""/>
+            <img src="![localhost1_](https://user-images.githubusercontent.com/83116065/204004182-d0061440-3c00-4440-be56-897f01b08319.png)" width="200px;" alt=""/>
         </a>
       </td>
     </tr>
