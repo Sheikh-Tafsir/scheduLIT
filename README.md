@@ -15,15 +15,21 @@
 ### Homepage
 
 <div style="display:flex">
+   
    ![localhost_](https://user-images.githubusercontent.com/83116065/204004425-1b007720-26c9-4bfd-84fb-0843cf5d1fbd.png)
+   
    ![localhost1_](https://user-images.githubusercontent.com/83116065/204004441-69df9001-cb58-4cbb-8c54-cc26a2d9dade.png)
+   
 </div>
 
 ### Login signup
 
 <div style="display:flex">
+   
    ![image](https://user-images.githubusercontent.com/83116065/204004698-65684776-ca09-4f70-88d8-6f03a2b8ad9c.png)
+   
    ![image](https://user-images.githubusercontent.com/83116065/204004809-f468b87e-4846-495f-9bdc-2fa3b3b04adb.png)
+   
 </div>
 
 ### Class Diagram
