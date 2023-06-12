@@ -1437,7 +1437,7 @@ form button:hover{
     }
     .frgtps{
         color:#3b5e53;
-        margin-right:38%;
+        margin-right:55%;
         font-size:0.9em;
     }
     .frgtps:hover{
@@ -1887,7 +1887,6 @@ form button:hover{
 }
 .calenderpart{
     background: url("https://raw.githubusercontent.com/trananhtuat/animated-login-registration/main/Screenshot_1.png");
-    background: url("https://i.ibb.co/D7P0HKX/enter.png");
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     height:100vh;

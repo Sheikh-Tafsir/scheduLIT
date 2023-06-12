@@ -12,7 +12,7 @@ const Forgetpass = () => {
 
     const forgetEmployee = () => {
         //alert(first3+last3);
-        Axios.post('http://localhost:3001/forget',{
+        Axios.post('http://localhost:3001/forgetpassword',{
             username:usernameforget,
         }).then((response) =>{
             //alert(response.data.message);

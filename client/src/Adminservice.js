@@ -1,10 +1,11 @@
 import React from 'react'
 import {FaArrowRight} from "react-icons/fa";
+import {Link} from 'react-router-dom';
 
 const Adminservice = () => {
     const loggout = () =>{
         localStorage.setItem("loggedstat",0);  
-        window.open("/admnlgn", "_top");     
+        window.open("/", "_top");     
     };
   return (
     <>
@@ -14,7 +15,7 @@ const Adminservice = () => {
             </div>
             <div className="reg">
                 <div className="reggg">
-                    <a href='/' className="rega" onClick={() => loggout()}>Log out</a>
+                    <Link to='/' className="rega" onClick={() => loggout()}>Log out</Link>
                 </div>
             </div>
         </div>

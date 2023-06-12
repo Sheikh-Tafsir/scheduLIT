@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
+import {Link} from 'react-router-dom';
 import {RiLockPasswordFill} from 'react-icons/ri'
 import {BsFillPersonFill} from 'react-icons/bs'
-/*import Homapage from './Homapage'
-import Forgetpass from './Forgetpass';
-import {Routes, Route, Link} from "react-router-dom";
-import { FaWhatsapp } from 'react-icons/fa';
-import $, { event } from "jquery";*/
+
 
 const Authorization = () => {
 
@@ -14,41 +11,39 @@ const Authorization = () => {
     const [password, setPassword] = useState("");
     const [loginStatus, setLoginStatus] = useState("");
     
-    let usrname=localStorage.getItem("usrname");
-    let loggedstat=localStorage.getItem("loggedstat");
-    let deptstat=localStorage.getItem("deptstat");
-    //localStorage.setItem("loggedstat",0);
+    // let usrname=localStorage.getItem("usrname");
+    // let loggedstat=localStorage.getItem("loggedstat");
+    // let deptstat=localStorage.getItem("deptstat");
   
-    const displayInfo = () => {
-        console.log(username + password);
-        alert(username + password);
-    }
 
-    const getEmployee = () => {
-        //alert("yess");
-        localStorage.setItem("usrname",username);
-        Axios.post('http://localhost:3001/log',{
-            username:username,
-            password:password
-        }).then((response) =>{
-            //alert(JSON.stringify(response.data));
-            //setLoginStatus((response.data));
-            //alert(response.data.message);
-            if(response.data.message === "0"){
-                setLoginStatus("Wrong id or password");
-            }
-            //if(response.data.message!="wrong username/password"){
-            else{
-                setLoginStatus("logging in");
-                localStorage.setItem("loggedstat",1);
-                localStorage.setItem("deptstat",response.data);
-                /*let loggedstat=localStorage.getItem("loggedstat");
-                alert("1 " + loggedstat);
-                alert("1user " + usrname);*/
-                window.open("/", "_top");
-            }
-        });
-        //alert("succc");
+    const handleLogin = () => {
+        // alert(username +" "+ password);
+        
+        if(username === "shoto" && password === "shoto12"){
+            setLoginStatus("logging in");
+            localStorage.setItem("usrname",username);
+            localStorage.setItem("loggedstat",1);
+            localStorage.setItem("deptstat","Admin");
+            window.location.href = '/adminservice';
+        }
+        else{        
+            Axios.post('http://localhost:3001/login',{
+                username:username,
+                password:password
+            }).then((response) =>{
+                if(response.data.message === "0"){
+                    setLoginStatus("Wrong id or password");
+                }
+                else{
+                    setLoginStatus("logging in");
+                    localStorage.setItem("usrname",username);
+                    localStorage.setItem("loggedstat",1);
+                    localStorage.setItem("deptstat",response.data);
+                    window.open("/", "_top");
+                }
+            });
+        }
+
         document.querySelector(".logfrm").reset();
     };
 
@@ -66,11 +61,11 @@ const Authorization = () => {
                 <input type="email" id="name" name="name" placeholder="Insert Your Email" onChange={(event) => {setUsername(event.target.value);}}/><br/>
                 <label htmlFor="pass"><RiLockPasswordFill/> Password: </label><br/>
                 <input type="password" id="pass" name="pass" placeholder="Insert Your Password" onChange={(event) => {setPassword(event.target.value);}}/><br/>
-                <a href="/forgetpass" className="frgtps">Forgot password?</a>
-                <a href="/admnlgn" className="log2admn">Login as admin</a>
+                <Link to="/forgetpass" className="frgtps">Forgot password?</Link>
+                {/* <Link to="/admnlgn" className="log2admn">Login as admin</Link> */}
                 <p>{loginStatus}</p>
-                <h3  className="logfrmbut" onClick={getEmployee}>LogIn</h3><br/>
-                <a href="/signup" id="log2reg">Don't Have an account? SignUp </a><br/>
+                <h3  className="logfrmbut" onClick={()=>handleLogin()} >LogIn</h3><br/> 
+                <Link to="/signup" id="log2reg">Don't Have an account? SignUp </Link><br/>
                 
             </form>   
             

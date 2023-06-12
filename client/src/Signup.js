@@ -21,7 +21,7 @@ const Signup = () => {
             const last3 =Math.floor(Math.random() * 101);
             setPasswordreg(first3+last3);
             //alert(first3+last3);
-            Axios.post('http://localhost:3001/create',{
+            Axios.post('http://localhost:3001/signup',{
                 username:usernamereg,
                 iid:useridreg,
                 dept:deptmntreg.toUpperCase(),
@@ -79,7 +79,7 @@ const Signup = () => {
                 
                 <p>{regStatus}</p>
                 <h3 className="signfrmbut" onClick={addEmployee} type="submit">SignUp</h3>
-                <a href='/authorization'>Already Have an account?</a>
+                <Link to='/authorization'>Already Have an account?</Link>
             </form>
             
         </div>

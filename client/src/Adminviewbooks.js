@@ -8,7 +8,7 @@ const Adminviewbooks = () => {
     const [deletestat,setDeletestat]=useState();
     let usrname=localStorage.getItem("usrname");
     window.addEventListener("load",function(){
-        Axios.post('http://localhost:3001/admincheckbook',{
+        Axios.post('http://localhost:3001/admincheckbookings',{
             val:1,
             usermail:usrname,
         }).then((response) =>{
@@ -16,6 +16,7 @@ const Adminviewbooks = () => {
             //alert(JSON.stringify(response.data));
         });
     });
+
     const deletebookingrout = (vday,vdate,vroomno,vslot,vemail,voldslot) => {
         //alert(day +" " + date + " " +roomno)
         Axios.post('http://localhost:3001/admindeletebookingrout',{
@@ -30,8 +31,8 @@ const Adminviewbooks = () => {
             //alert(JSON.stringify(response.data));
         });
         deletebookingchck(vday,vdate,vroomno,vslot,vemail);
-        
     };
+
     const deletebookingchck = (vday,vdate,vroomno,vslot,vemail) => {
         //alert(day +" " + date + " " +roomno)
         Axios.post('http://localhost:3001/admindeletebookingchck',{
@@ -65,18 +66,25 @@ const Adminviewbooks = () => {
                 {/*<p className="checkbookpnt7">Delete</p>*/}
             </div>
             {bookedList.map((item, index) => {
-                return <div>
-                    <div key={index} className="checkbookpnt">
-                        <p className="checkbookpnt1">{index +1}. </p>
-                        <p className="checkbookpnt2">{item.day} </p> 
+                const currentDate = new Date();
+                const bookDate = new Date(item.date);
+
+                if (bookDate > currentDate) {
+                    return (
+                    <div>
+                        <div key={index} className="checkbookpnt">
+                        <p className="checkbookpnt1">{index + 1}. </p>
+                        <p className="checkbookpnt2">{item.day} </p>
                         <p className="checkbookpnt3">{item.date} </p>
                         <p className="checkbookpnt4">{item.roomno} </p>
-                        {/*item.slotno == "slot1" ? <p  className="checkbookpnt5">8.00-9.15</p> : item.slotno == "slot2" ? <p className="checkbookpnt5">9.15-10.30</p> : item.slotno == "slot3" ? <p className="checkbookpnt5">10.30-11.45</p> : item.slotno == "slot4" ? <p className="checkbookpnt5">11.45-1.00</p> : item.slotno == "slot5" ? <p className="checkbookpnt5">1.00-2.30</p> : item.slotno == "slot6" ? <p className="checkbookpnt5">2.30-3.45</p> : <p className="checkbookpnt5">3.45-5.00</p>*/}
                         <p className="checkbookpnt5"> {item.time} </p>
                         <p className="checkbookpnt6"> {item.email} </p>
-                        {/*<p className="checkbookpnt7" onClick={()=>deletebookingrout(item.day,item.date,item.roomno,item.slotno,item.email,item.oldslot)}> <FaTrashAlt className="checkbookpnt7_icon"></FaTrashAlt> </p>*/}
+                        </div>
                     </div>
-                </div>
+                    );
+                }
+
+                return null; // Return null if the date is not greater than today
             })}
         </div>
 

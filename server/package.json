@@ -17,7 +17,12 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.8",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "pg": "^8.11.0",
+    "sequelize": "^6.32.0",
+    "sequelize-cli": "^6.6.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3"
   },
   "keywords": [],
   "description": ""

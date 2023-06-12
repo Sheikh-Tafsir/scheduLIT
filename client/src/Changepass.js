@@ -19,7 +19,7 @@ const Changepass = () => {
             setForgetStatus("password atleast 8 characters");
         }
         else{
-            Axios.post('http://localhost:3001/changepass',{
+            Axios.post('http://localhost:3001/changepassword',{
                 username:usrname,
                 password:passchange,
             }).then((response) =>{

@@ -1,5 +1,4 @@
 {
-  "homepage": "http://Sheikh-Tafsir.github.io/scheduLIT",
   "name": "schedulit",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +11,7 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^0.24.0",
+    "bootstrap": "^5.2.3",
     "connect": "^3.7.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
@@ -27,12 +27,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
